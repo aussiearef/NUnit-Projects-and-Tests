@@ -17,7 +17,9 @@ namespace StringFunctionsTests
             var lastName = "Doe";
             var fullName = NamesHelper.MakeFullName(firstName, lastName);
 
-            StringAssert.StartsWith(firstName, fullName, "The test expects the full name to begin with {0}.", firstName);
+            // Before UNit 4:
+            // StringAssert.StartsWith(firstName, fullName, "The test expects the full name to begin with {0}.", firstName);
+
             Assert.That(fullName, Does.StartWith(firstName).And.EndsWith(lastName));
         }
 
@@ -28,7 +30,9 @@ namespace StringFunctionsTests
             var lastName = "Doe";
             var fullName = NamesHelper.MakeFullName(firstName, lastName);
 
-            StringAssert.AreEqualIgnoringCase($"{firstName} {lastName}", fullName);
+            // Before NUnit 4:
+            // StringAssert.AreEqualIgnoringCase($"{firstName} {lastName}", fullName);
+
             Assert.That(fullName, Is.EqualTo($"{firstName} {lastName}").IgnoreCase);
         }
 
@@ -39,7 +43,9 @@ namespace StringFunctionsTests
             var lastName = "Doe";
             var fullName = NamesHelper.MakeFullName(firstName, lastName);
 
-            StringAssert.EndsWith(lastName, fullName);
+            // Before NUnit 4:
+            // StringAssert.EndsWith(lastName, fullName);
+
             Assert.That(fullName, Does.EndWith(lastName));
         }
 
@@ -47,12 +53,13 @@ namespace StringFunctionsTests
         public void MakeFullName_When_GenderIsMale_Then_BeginsWithMr()
         {
             const string regexPattern = "^(Mr.)";
-            const string maleTitle = "Mr.";
             var firstName = "John";
             var lastName = "Doe";
             var fullName = NamesHelper.MakeFullName(firstName, lastName, Genders.Male);
 
-            StringAssert.IsMatch(regexPattern, fullName);
+            // Before NUnit 4:
+            // StringAssert.IsMatch(regexPattern, fullName);
+
             Assert.That(fullName, Does.Match(regexPattern));
         }
     }

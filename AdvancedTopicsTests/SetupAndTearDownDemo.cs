@@ -32,12 +32,12 @@ namespace AdvancedTopicsTests
 
         [Test]
         public void Test1() {
-            Assert.True(true);
+            Assert.Pass();
         }
 
         [Test] 
         public void Test2() {
-            Assert.True(true);
+            Assert.Pass();
         }
     }
 }

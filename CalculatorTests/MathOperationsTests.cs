@@ -21,12 +21,9 @@ namespace CalculatorTests
             var c = operations.Add(a,b);
 
             Assert.Multiple(() => {
-
                 Console.WriteLine("Assert.Multiple started.");
-
-                Assert.True(c == 4);
-                Assert.False(c == 4);
-
+                Assert.That(c, Is.EqualTo(4));
+                Assert.That(c, Is.Not.EqualTo(4));
                 Console.WriteLine("Assert.Multiple ended.");
             });
 
@@ -34,8 +31,8 @@ namespace CalculatorTests
 
                 Console.WriteLine("Assert.Multiple started.");
 
-                Assert.True(c == 4);
-                Assert.False(c == 4);
+                Assert.That(c, Is.EqualTo(4));
+                Assert.That(c, Is.Not.EqualTo(4));
 
                 Console.WriteLine("Assert.Multiple ended.");
             });
@@ -51,8 +48,7 @@ namespace CalculatorTests
             var a = 1;
             var b = 1;
             var c = operations.Add(a,b);
-            
-            Assert.NotZero(c);
+            Assert.That(c, Is.Not.EqualTo(0));
             Assert.That(c, Is.Not.Zero.And.LessThan(3));
         }
 

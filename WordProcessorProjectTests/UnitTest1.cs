@@ -19,27 +19,14 @@ namespace WordProcessorProjectTests
         {
 
             var wp = new WordProcessor();
-
-            //Assert.NotNull(wordDocument, "Word document is Null. Test cannot continue.");
-            Assert.NotNull(wordDocument);
             Assert.That(wordDocument, Is.Not.Null);
-
-            Assert.IsInstanceOf<IDocument>(wordDocument);
+            Assert.That(wordDocument, Is.InstanceOf<WordProcessor>());
             Assert.That(wordDocument, Is.InstanceOf<IDocument>());
-
-            //Assert.IsInstanceOf(typeof(WordDocument), wordDocument);
-
-
-            Assert.IsAssignableFrom<Word365Document>(wordDocument);
             Assert.That(wordDocument, Is.AssignableFrom<Word365Document>());
-
-
-            Assert.IsNotAssignableFrom<PdfDocument>(wordDocument);
             Assert.That(wordDocument, Is.Not.AssignableFrom<PdfDocument>());
 
             Assert.DoesNotThrow(() => { wp.Print(wordDocument as WordDocument); });
             Assert.That(() => { wp.Print(wordDocument as WordDocument); }, Throws.Nothing);
-
         }
 
         [Test]

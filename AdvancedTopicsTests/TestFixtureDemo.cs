@@ -32,14 +32,14 @@ namespace AdvancedTopicsTests
         public void Test1()
         {
             Console.WriteLine("{0} {1} {2}", year, month, day);
-            Assert.True(true);
+            Assert.Pass();
         }
 
         [Test]
         public void Test2()
         {
             Console.WriteLine("{0} {1}", firstName, lastName);
-            Assert.True(true);
+            Assert.Pass(); 
         }
     }
 }
